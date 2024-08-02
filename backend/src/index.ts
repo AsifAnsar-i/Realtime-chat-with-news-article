@@ -10,6 +10,7 @@ import { Server } from "socket.io";
 import { setupSocket } from "./socket";
 import messageRoutes from "./routes/message";
 import newsRoutes from "./routes/news";
+import path from "path";
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
 
@@ -34,6 +35,9 @@ app.use(
     credentials: true,
   })
 );
+
+
+app.use(express.static(path.join(__dirname, "../../ui/dist")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);

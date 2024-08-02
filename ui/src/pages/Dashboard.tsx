@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 const Dashboard = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full mx-auto gap-6 p-4 text-center">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Welcome to Your Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">
+        Welcome to Your Dashboard
+      </h1>
       <p className="text-lg text-gray-600 mb-8">
         Choose an option below to start exploring your favorite features.
       </p>
@@ -11,7 +13,7 @@ const Dashboard = () => {
         <Link to="/chat" className="w-full max-w-xs">
           <div className="relative">
             <img
-              src="/src/assets/chat12.jpeg"
+              src="https://images.pexels.com/photos/6146929/pexels-photo-6146929.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               className="w-full h-[200px] object-cover rounded-lg hover:opacity-70 cursor-pointer"
               alt="Chat"
             />
@@ -19,12 +21,14 @@ const Dashboard = () => {
               Chat
             </span>
           </div>
-          <p className="mt-2 text-lg text-gray-700">Connect and chat with friends in real-time.</p>
+          <p className="mt-2 text-lg text-gray-700">
+            Connect and chat with friends in real-time.
+          </p>
         </Link>
         <Link to="/news" className="w-full max-w-xs">
           <div className="relative">
             <img
-              src="/src/assets/news12.jpeg"
+              src="https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               className="w-full h-[200px] object-cover rounded-lg hover:opacity-70 cursor-pointer"
               alt="News"
             />
@@ -32,7 +36,9 @@ const Dashboard = () => {
               News
             </span>
           </div>
-          <p className="mt-2 text-lg text-gray-700">Stay updated with the latest news articles.</p>
+          <p className="mt-2 text-lg text-gray-700">
+            Stay updated with the latest news articles.
+          </p>
         </Link>
       </div>
     </div>
