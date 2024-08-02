@@ -2,7 +2,8 @@ import { RegisterFormData } from "./pages/Register";
 import { SignInFormData } from "./pages/SignIn";
 import { UserType } from "./types";
 
-const API_BASE_URL = "https://realtime-chat-with-news-article.onrender.com";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+
 
 export const fetchCurrentUser = async (): Promise<UserType> => {
   const response = await fetch(`${API_BASE_URL}/api/users/me`, {
