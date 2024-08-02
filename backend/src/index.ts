@@ -44,6 +44,11 @@ app.use("/api/users", userRoutes);
 app.use("/api/message", messageRoutes);
 app.use("/api/news", newsRoutes);
 
+app.get("*", (req: Request, res: Response ) => {
+
+  res.sendFile(path.join(__dirname, "../../ui/dist/index.html"));
+});
+
 server.listen(7000, () => {
   console.log(`Server running, on port ${7000}`);
 });
