@@ -19,7 +19,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL,
+    origin: "https://realtime-chat-with-news-article.onrender.com",
     credentials: true,
   },
 });
@@ -31,11 +31,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: "https://realtime-chat-with-news-article.onrender.com",
     credentials: true,
   })
 );
-
 
 app.use(express.static(path.join(__dirname, "../../ui/dist")));
 
@@ -44,8 +43,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/message", messageRoutes);
 app.use("/api/news", newsRoutes);
 
-app.get("*", (req: Request, res: Response ) => {
-
+app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../../ui/dist/index.html"));
 });
 
