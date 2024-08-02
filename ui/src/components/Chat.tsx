@@ -6,9 +6,7 @@ import { useMutation } from "react-query";
 import * as apiClient from "../api-client";
 import PulseLoader from "./PulseLoader";
 
-const SOCKET_URL = import.meta.env.VITE_API_BASE_URL || "";
-
-const socket = io(SOCKET_URL);
+const socket = io("https://realtime-chat-with-news-article.onrender.com);
 export type MessagesProps = {
   content: string;
   username: string;
