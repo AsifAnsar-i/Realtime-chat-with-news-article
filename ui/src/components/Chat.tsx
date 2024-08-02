@@ -6,7 +6,7 @@ import { useMutation } from "react-query";
 import * as apiClient from "../api-client";
 import PulseLoader from "./PulseLoader";
 
-const socket = io("http://localhost:7000"); 
+const socket = io("https://realtime-chat-with-news-article.onrender.com");
 export type MessagesProps = {
   content: string;
   username: string;
@@ -16,7 +16,7 @@ const Chat = () => {
   const [room, setRoom] = useState<string>("general");
   const [message, setMessage] = useState<string>("");
   const [messages, setMessages] = useState<MessagesProps[]>([]);
-  const [error, setError] = useState<string | null>(null); 
+  const [error, setError] = useState<string | null>(null);
 
   const { user } = useAppContext();
   const username = user?.username || "Anonymous";
@@ -28,6 +28,7 @@ const Chat = () => {
       setMessages((prevMessages) => [...prevMessages, newMessage]);
     });
 
+    setRoom("general");
     return () => {
       socket.off("message");
     };
@@ -49,7 +50,7 @@ const Chat = () => {
       return;
     }
 
-    setError(null); 
+    setError(null);
     mutation.mutate(messageData);
     socket.emit("message", { room, content: message, username });
     setMessage("");
@@ -83,7 +84,8 @@ const Chat = () => {
           <ChatCard msg={msg} index={index} key={index} />
         ))}
       </div>
-      {error && <p className="text-red-500 mb-2">{error}</p>} {/* Display error message */}
+      {error && <p className="text-red-500 mb-2">{error}</p>}{" "}
+      {/* Display error message */}
       <div className="flex items-center">
         <input
           type="text"
@@ -94,7 +96,9 @@ const Chat = () => {
         />
         <button
           className={`py-2.5 border-2 px-3  items-center justify-center text-center ${
-            message.trim() === "" ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-pink-400 text-white hover:bg-pink-300"
+            message.trim() === ""
+              ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+              : "bg-pink-400 text-white hover:bg-pink-300"
           }`}
           onClick={sendMessage}
           disabled={message.trim() === ""}
