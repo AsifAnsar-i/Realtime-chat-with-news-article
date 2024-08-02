@@ -94,18 +94,6 @@ export interface NewsArticle {
   content: string | null; // Content of the article
 }
 
-// const queryParams = new URLSearchParams();
-// queryParams.append("country", "us");
-// queryParams.append("apiKey", API_KEY);
-// export const fetchTopHeadlines = async (country: string = "us"):Promise<NewsApiResponse> => {
-//   try {
-//     const response = await fetch(`${BASE_URL}/top-headlines?${queryParams}`);
-//     return response.data;
-//   } catch (error) {
-//     console.error("Error fetching top headlines:", error);
-//     throw error;
-//   }
-// };
 
 export type messageDataProps = {
   username: string;
