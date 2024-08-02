@@ -6,7 +6,7 @@ import { useMutation } from "react-query";
 import * as apiClient from "../api-client";
 import PulseLoader from "./PulseLoader";
 
-const socket = io("https://realtime-chat-with-news-article.onrender.com);
+const socket = io("https://realtime-chat-with-news-article.onrender.com");
 export type MessagesProps = {
   content: string;
   username: string;
