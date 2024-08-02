@@ -45,7 +45,9 @@ router.post(
       res.cookie("auth_token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
+        sameSite: "none",
         maxAge: 86400000,
+        domain: ".realtimechat90.netlify.app",
       });
       res.status(200).json({ username: username });
     } catch (error) {
